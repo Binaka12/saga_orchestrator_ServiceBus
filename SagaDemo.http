@@ -1,0 +1,17 @@
+### Create/process an order through the Saga Orchestrator
+POST http://localhost:5004/api/saga
+Content-Type: application/json
+
+{
+  "productId": "Product1",
+  "quantity": 10
+}
+
+### View inventory
+GET http://localhost:5002/api/inventory
+
+### View payments
+GET http://localhost:5003/api/payments
+
+### View created order
+GET http://localhost:5001/api/orders/1

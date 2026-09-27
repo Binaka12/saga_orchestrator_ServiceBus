@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  saga-orchestrator:
+    build: ./SagaOrchestrator
+    ports:
+      - "5004:5004"
+    environment:
+      - ServiceBus__ConnectionString=${SERVICEBUS_CONNECTIONSTRING}
+
+  order-service:
+    build: ./OrderService
+    ports:
+      - "5001:5001"
+    environment:
+      - ServiceBus__ConnectionString=${SERVICEBUS_CONNECTIONSTRING}
+
+  inventory-service:
+    build: ./InventoryService
+    ports:
+      - "5002:5002"
+    environment:
+      - ServiceBus__ConnectionString=${SERVICEBUS_CONNECTIONSTRING}
+
+  payment-service:
+    build: ./PaymentService
+    ports:
+      - "5003:5003"
+    environment:
+      - ServiceBus__ConnectionString=${SERVICEBUS_CONNECTIONSTRING}
